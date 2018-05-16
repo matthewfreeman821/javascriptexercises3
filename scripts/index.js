@@ -8,7 +8,6 @@ var cities = [
     { name: 'Detroit', temperature: 48.0 },
     { name: 'New York', temperature: 80.0 }
 ];
-var coolCities = [];
 var citiesNames = [];
 var people = [
     'Dom',
@@ -47,6 +46,14 @@ myArray.forEach(function (num) {
     squareArray.push(num);
 });
 
+function onlyCoolCities(arrOfCities) {
+    return arrOfCities.filter(function (city) {
+        return city.temperature < 70;
+    });
+};
+
+console.log(onlyCoolCities(cities));
+
 
 people.forEach(function (name) {
     console.log('Good job, ' + name + '!')
@@ -64,6 +71,17 @@ function call3Times(fun) {
 
 call3Times(hello);
 
+function callNTimes(times, fun) {
+    for (var i = 0; i < times; i++) {
+        fun();
+    }
+}
+
+function sayHello() {
+    console.log('Hello World!');
+}
+
+callNTimes(5, sayHello);
 
 function range(min, max) {
     var arr = [];
@@ -74,7 +92,10 @@ function range(min, max) {
 };
 
 function strMultiply(str, times) {
-    repeatedString = [];
-    //use range function to repeat given str and put into repeatedString
-    return repeatedString;
+    var couterArray = range(0, times);
+    var stringArray = couterArray.map(function (num) {
+        return str;
+    });
+
+    return stringArray.join('');
 };
